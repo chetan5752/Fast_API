@@ -1,9 +1,11 @@
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+from dotenv import load_dotenv
+import os
 
-conn="postgresql://postgres:chetan@127.0.0.1:5432/User"
+load_dotenv()
 
+conn=os.getenv("connection")
 engine=create_engine(conn)
 
 session=sessionmaker(bind=engine)
